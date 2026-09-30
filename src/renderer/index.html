@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!--
+      script-src allows cdn.jsdelivr.net because @huggingface/transformers
+      (local Whisper STT) loads its ONNX runtime WASM backend from there by
+      default. connect-src allows huggingface.co/hf.co for the model-weight
+      download on first use. font-src allows data: because KaTeX's own CSS
+      embeds its math glyphs as data: URI woff2 fonts. Everything else stays
+      locked to 'self'.
+    -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self' data:; script-src 'self' 'wasm-unsafe-eval' https://cdn.jsdelivr.net; connect-src 'self' https://cdn.jsdelivr.net https://huggingface.co https://*.hf.co http://localhost:*; media-src 'self' blob:; worker-src 'self' blob:;"
+    />
+    <title>Mimir</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="./main.tsx"></script>
+  </body>
+</html>

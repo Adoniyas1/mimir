@@ -1,0 +1,8 @@
+node_modules/
+dist/
+dist-installers/
+*.log
+.DS_Store
+.mimir-dev/
+workspace/
+src/renderer/public/vad/
